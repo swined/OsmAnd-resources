@@ -18,3 +18,4 @@ _rendering-testcases
 *.DS_Store
 # Search obfs
 /test-resources/search/*.obf
+/.idea/
