@@ -3007,6 +3007,34 @@
 		<entity_convert pattern="tag_transform" from_tag="building:part" from_value="garages" to_tag1="building:part" to_value1="garage"/>
 		<entity_convert pattern="tag_transform" from_tag="building:part" from_value="public" to_tag1="building:part" to_value1="civic"/>
 		<entity_convert pattern="tag_transform" from_tag="building:part" from_value="greenhouse" to_tag1="building:part" to_value1="industrial"/>
+
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="apartments" to_tag1="building:part" to_value1="residential"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="house" to_tag1="building:part" to_value1="residential"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="detached" to_tag1="building:part" to_value1="residential"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="dormitory" to_tag1="building:part" to_value1="residential"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="garages" to_tag1="building:part" to_value1="garage"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="public" to_tag1="building:part" to_value1="civic"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="greenhouse" to_tag1="building:part" to_value1="industrial"/>
+
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="church" to_tag1="building:part" to_value1="church"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="civic" to_tag1="building:part" to_value1="civic"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="commercial" to_tag1="building:part" to_value1="commercial"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="construction" to_tag1="building:part" to_value1="construction"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="garage" to_tag1="building:part" to_value1="garage"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="hospital" to_tag1="building:part" to_value1="hospital"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="hotel" to_tag1="building:part" to_value1="hotel"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="industrial" to_tag1="building:part" to_value1="industrial"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="kindergarten" to_tag1="building:part" to_value1="kindergarten"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="office" to_tag1="building:part" to_value1="office"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="residential" to_tag1="building:part" to_value1="residential"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="retail" to_tag1="building:part" to_value1="retail"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="roof" to_tag1="building:part" to_value1="roof"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="school" to_tag1="building:part" to_value1="school"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="service" to_tag1="building:part" to_value1="service"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="shed" to_tag1="building:part" to_value1="shed"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="university" to_tag1="building:part" to_value1="university"/>
+		<entity_convert pattern="tag_transform" from_tag="building_outline_type" from_value="warehouse" to_tag1="building:part" to_value1="warehouse"/>
+
 		<type tag="building:part" minzoom="17" />
 		<type tag="building:colour" minzoom="17" additional="text" />
 		<type tag="building:levels" minzoom="17" additional="text" />
@@ -5640,7 +5668,8 @@
 		<type tag="temperature" additional="text" minzoom="3" notosm="true"/>
 		<type tag="leisure" value="nature_reserve" minzoom="6" order="49"/>
 		<type tag="osmand_nature_reserve" value="line" minzoom="6" order="49" notosm="true"/>
-		<entity_convert pattern="tag_transform" from_tag="leisure" from_value="nature_reserve" to_tag1="leisure" to_value1="nature_reserve" to_tag2="osmand_nature_reserve" to_value2="line" poi="no" notosm="true"/>
+		<entity_convert pattern="tag_transform" from_tag="leisure" from_value="nature_reserve" if_tag1="boundary" if_value1="national_park" poi="no" notosm="true"/>
+		<entity_convert pattern="tag_transform" from_tag="leisure" from_value="nature_reserve" if_not_tag1="boundary" if_not_value1="national_park" to_tag1="leisure" to_value1="nature_reserve" to_tag2="osmand_nature_reserve" to_value2="line" poi="no" notosm="true"/>
 		<type tag="nr_high_density" value="yes" minzoom="3" additional="true" notosm="true"/>
 
 		<entity_convert pattern="tag_transform" from_tag="leisure" from_value="nature_reserve" if_region_name="$netherlands" to_tag1="leisure" to_value1="nature_reserve" to_tag2="nr_high_density" to_value2="yes" notosm="true"/>
@@ -6271,9 +6300,9 @@
 		<type tag="place" value="island" minzoom="10" order="50"/>
 		<type tag="place" value="islet" minzoom="10" order="100"/>
 		<entity_convert pattern="tag_transform" from_tag="place" from_value="atoll" to_tag1="place" to_value1="island" poi="no" routing="no"/>
-		<type tag="osmand_large_state" value="true" minzoom="5" additional="true" notosm="true"/>
-		<type tag="osmand_region" value="yes" minzoom="5"  notosm="true"/>
-		<type tag="osmand_region" value="boundary" minzoom="5"  notosm="true"/>
+		<type tag="osmand_large_state" value="true" minzoom="3" additional="true" notosm="true"/>
+		<type tag="osmand_region" value="yes" minzoom="5" notosm="true"/>
+		<type tag="osmand_region" value="boundary" minzoom="5" notosm="true"/>
 		<type tag="capital" value="yes" minzoom="4" additional="true"/>
 		<type tag="amenity" value="courthouse" minzoom="15" />
 		<type tag="amenity" value="customs" minzoom="15" />
@@ -6377,7 +6406,7 @@
 		<type tag="boundary" value="protected_area" minzoom="6" relation="true"/>
 		<entity_convert pattern="tag_transform" from_tag="boundary" from_value="protected_area" if_region_name="$netherlands" to_tag1="boundary" to_value1="protected_area" to_tag2="nr_high_density" to_value2="yes" notosm="true"/>
 		<type tag="osmand_protected_area" value="line" minzoom="6" order="50" notosm="true"/>
-		<entity_convert pattern="tag_transform" from_tag="boundary" from_value="protected_area" to_tag1="boundary" to_value1="protected_area" to_tag2="osmand_protected_area" to_value2="line" poi="no" notosm="true"/>
+		<entity_convert pattern="tag_transform" from_tag="boundary" from_value="protected_area" if_not_tag1="leisure" if_not_value1="nature_reserve" to_tag1="boundary" to_value1="protected_area" to_tag2="osmand_protected_area" to_value2="line" poi="no" notosm="true"/>
 		<type tag="boundary" value="forestry_compartment" minzoom="10" relation="true"/>
 		<entity_convert pattern="tag_transform" from_tag="boundary" from_value="forest_compartment" to_tag1="boundary" to_value1="forestry_compartment"/>
 		<!--		<entity_convert pattern="tag_transform" from_tag="boundary" from_value="protected_area" if_not_tag1="leisure" if_not_tag2="nature" if_not_less_tag1="protect_class" if_not_less_value1="5" poi="no"/>-->
