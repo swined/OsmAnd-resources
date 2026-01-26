@@ -411,10 +411,6 @@
 		<!-- <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> -->
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 
-        <parameter id="less_dual_carriageways" name="🔀 Less dual carriageways" type="boolean"/>
-        <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
-        <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
-
 		<parameter id="short_way" name="Short way" description="Short way" type="boolean"/>
 		<parameter id="avoid_toll" name="Avoid toll roads" description="Avoid toll roads" type="boolean"/>
 		<parameter id="avoid_unpaved" name="Avoid unpaved roads" description="Avoid unpaved roads" type="boolean"/>
@@ -449,7 +445,11 @@
 		<parameter id="weightrating" name="Max weight at full load" description="Maximum permitted weight of the vehicle at full load" type="numeric" values="0,1.5,3,3.5,5,7.5,10,12,15,20,30,40" valueDescriptions="-,1.5t,3t,3.5t,5t,7.5t,10t,12t,15t,20t,30t,40t" profiles="truck"/>
 		<parameter id="motor_type" name="Motor type" description="For CO2 computation" type="numeric" values="0,1,2,3,4,5,6" valueDescriptions="-,Petrol,Diesel,Lpg,Gas,Electric,Hybrid"/>
 
-		<way attribute="access">
+        <parameter id="less_dual_carriageways" name="🔀 Less dual carriageways" type="boolean"/>
+        <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
+        <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
+
+        <way attribute="access">
 			<select value="-1" t="osmand_change" v="delete"/>
 			<select value="-1" t="highway" v="proposed"/>
 			<select value="-1" t="highway" v="construction"/>
