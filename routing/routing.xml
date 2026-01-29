@@ -901,6 +901,8 @@
                 </select>
                 <select value="0.2">
                     <ifnot t="junction"/>
+                    <ifnot t="tunnel" v="yes"/>
+                    <ifnot t="bridge" v="yes"/>
                     <if t="highway" v="trunk_link"/>
                     <if t="oneway" v="yes"/>
                 </select>
