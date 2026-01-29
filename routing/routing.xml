@@ -405,7 +405,6 @@
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 
         <parameter id="less_dual_carriageways" name="🔀 Less dual carriageways" type="boolean"/>
-        <parameter id="less_dc_in_lez" name="🌲Less DC in LEZ" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
         
@@ -897,24 +896,12 @@
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
-                    <ifnot t="low_emission_zone" v="yes"/>
                     <if t="highway" v="trunk"/>
                     <if t="oneway" v="yes"/>
                 </select>
                 <select value="0.2">
                     <ifnot t="junction"/>
-                    <ifnot t="low_emission_zone" v="yes"/>
                     <if t="highway" v="trunk_link"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-            </if>
-            <if param="less_dc_in_lez">
-                <select value="0.2">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="low_emission_zone" v="yes"/>
-                    <if t="highway" v="trunk"/>
                     <if t="oneway" v="yes"/>
                 </select>
             </if>
@@ -927,7 +914,8 @@
             <if param="less_unclassified">
                 <select t="highway" v="unclassified" value="0.05"/>
             </if>
-			<!-- not working fine -->
+
+            <!-- not working fine -->
 			<!--
 			<if param="prefer_motorway">
 				<select value="1.2" t="highway" v="motorway"/>
