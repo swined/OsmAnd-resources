@@ -405,7 +405,8 @@
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 
         <parameter id="less_dual_carriageways" name="🔀 Less dual carriageways" type="boolean"/>
-        <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
+        <parameter id="less_tertiary_50" name="3️⃣ 50% Less tertiary roads" type="boolean"/>
+        <parameter id="less_tertiary_75" name="3️⃣ 75% Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
         
         <parameter id="short_way" name="Short way" description="Short way" type="boolean"/>
@@ -907,10 +908,16 @@
                     <if t="oneway" v="yes"/>
                 </select>
             </if>
-            <if param="less_tertiary">
+            <if param="less_tertiary_50">
                 <select t="highway" v="tertiary" value="0.5"/>
                 <ifnot param="less_unclassified">
                     <select t="highway" v="unclassified" value="0.25"/>
+                </ifnot>
+            </if>
+            <if param="less_tertiary_75">
+                <select t="highway" v="tertiary" value="0.75"/>
+                <ifnot param="less_unclassified">
+                    <select t="highway" v="unclassified" value="0.5"/>
                 </ifnot>
             </if>
             <if param="less_unclassified">
