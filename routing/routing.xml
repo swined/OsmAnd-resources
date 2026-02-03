@@ -404,6 +404,7 @@
 		<!-- <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> -->
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 
+        <parameter id="less_dual_carriageways_off" name="Off" type="boolean" group="less_dual_carriageways"/>
         <parameter id="less_dual_carriageways_10_25" name="10% M 25% OWT" type="boolean" group="less_dual_carriageways"/>
         <parameter id="less_dual_carriageways_25_50" name="25% M 50% OWT" type="boolean" group="less_dual_carriageways"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
