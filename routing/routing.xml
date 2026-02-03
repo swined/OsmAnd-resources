@@ -404,7 +404,8 @@
 		<!-- <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> -->
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 
-        <parameter id="less_dual_carriageways" name="🔀 Less dual carriageways" type="boolean"/>
+        <parameter id="less_dual_carriageways_10_25" name="10% M 25% OWT" type="boolean" group="less_dual_carriageways"/>
+        <parameter id="less_dual_carriageways_25_50" name="25% M 50% OWT" type="boolean" group="less_dual_carriageways"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         
         <parameter id="short_way" name="Short way" description="Short way" type="boolean"/>
@@ -880,7 +881,33 @@
 		</way>
 
 		<way attribute="priority">
-            <if param="less_dual_carriageways">
+            <if param="less_dual_carriageways_10_25">
+                <select value="0.10">
+                    <ifnot param="avoid_motorway"/>
+                    <ifnot t="junction"/>
+                    <if t="highway" v="motorway"/>
+                </select>
+                <select value="0.10">
+                    <ifnot param="avoid_motorway"/>
+                    <ifnot t="junction"/>
+                    <if t="highway" v="motorway_link"/>
+                </select>
+                <select value="0.25">
+                    <ifnot t="junction"/>
+                    <ifnot t="tunnel" v="yes"/>
+                    <ifnot t="bridge" v="yes"/>
+                    <if t="highway" v="trunk"/>
+                    <if t="oneway" v="yes"/>
+                </select>
+                <select value="0.25">
+                    <ifnot t="junction"/>
+                    <ifnot t="tunnel" v="yes"/>
+                    <ifnot t="bridge" v="yes"/>
+                    <if t="highway" v="trunk_link"/>
+                    <if t="oneway" v="yes"/>
+                </select>
+            </if>
+            <if param="less_dual_carriageways_25_50">
                 <select value="0.25">
                     <ifnot param="avoid_motorway"/>
                     <ifnot t="junction"/>
@@ -905,7 +932,7 @@
                     <if t="highway" v="trunk_link"/>
                     <if t="oneway" v="yes"/>
                 </select>
-            </if>
+            </if>            
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
                 <select t="highway" v="unclassified" value="0.25"/>
