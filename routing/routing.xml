@@ -406,7 +406,6 @@
 
         <parameter id="less_dual_carriageways" name="🔀 Less dual carriageways" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
-        <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
         
         <parameter id="short_way" name="Short way" description="Short way" type="boolean"/>
 		<parameter id="avoid_toll" name="Avoid toll roads" description="Avoid toll roads" type="boolean"/>
@@ -892,14 +891,14 @@
                     <ifnot t="junction"/>
                     <if t="highway" v="motorway_link"/>
                 </select>
-                <select value="0.25">
+                <select value="0.50">
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
                     <if t="highway" v="trunk"/>
                     <if t="oneway" v="yes"/>
                 </select>
-                <select value="0.25">
+                <select value="0.50">
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
@@ -909,12 +908,7 @@
             </if>
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
-                <ifnot param="less_unclassified">
-                    <select t="highway" v="unclassified" value="0.25"/>
-                </ifnot>
-            </if>
-            <if param="less_unclassified">
-                <select t="highway" v="unclassified" value="0.05"/>
+                <select t="highway" v="unclassified" value="0.25"/>
             </if>
 
             <!-- not working fine -->
