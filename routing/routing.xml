@@ -404,7 +404,7 @@
 		<!-- <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> -->
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 
-        <parameter id="less_dual_carriageways_off" name="Off" type="boolean" group="less_dual_carriageways"/>
+        <parameter id="less_dual_carriageways_off" name="Off" type="boolean" group="less_dual_carriageways" default="true"/>
         <parameter id="less_dual_carriageways_soft" name="Soft" type="boolean" group="less_dual_carriageways"/>
         <parameter id="less_dual_carriageways_hard" name="Hard" type="boolean" group="less_dual_carriageways"/>
         
