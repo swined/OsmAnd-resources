@@ -385,7 +385,7 @@
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
 
-        <!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
+		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
 	 	<!--<attribute name="heuristicCoefficient" value="1.5" />
 		-->
