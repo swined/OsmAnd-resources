@@ -384,7 +384,7 @@
         <parameter id="less_dual_carriageways" name="0️⃣ Less dual carriageways" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
-        <parameter id="prefer_tolls" name="💸 Prefer tolls" type="boolean"/>
+        <parameter id="more_tolls" name="💸 More tolls" type="boolean"/>
 
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
@@ -917,7 +917,7 @@
             <if param="less_unclassified">
                 <select t="highway" v="unclassified" value="0.1"/>
             </if>
-            <if param="prefer_tolls">
+            <if param="more_tolls">
                 <select value="0.7">
                     <ifnot t="toll" v="yes"/>
                 </select>
