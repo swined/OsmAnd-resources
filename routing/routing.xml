@@ -882,24 +882,24 @@
 
 		<way attribute="priority">
             <if param="less_dual_carriageways">
-                <select value="0.10">
+                <select value="0.1">
                     <ifnot param="avoid_motorway"/>
                     <ifnot t="junction"/>
                     <if t="highway" v="motorway"/>
                 </select>
-                <select value="0.10">
+                <select value="0.1">
                     <ifnot param="avoid_motorway"/>
                     <ifnot t="junction"/>
                     <if t="highway" v="motorway_link"/>
                 </select>
-                <select value="0.25">
+                <select value="0.1">
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
                     <if t="highway" v="trunk"/>
                     <if t="oneway" v="yes"/>
                 </select>
-                <select value="0.25">
+                <select value="0.1">
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
@@ -909,9 +909,9 @@
             </if>
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
-                <ifnot param="less_unclassified">
-                    <select t="highway" v="unclassified" value="0.25"/>
-                </ifnot>
+                <select t="highway" v="unclassified" value="0.1">
+                    <ifnot param="less_unclassified"/>
+                </select>
             </if>
             <if param="less_unclassified">
                 <select t="highway" v="unclassified" value="0.1"/>
