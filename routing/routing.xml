@@ -892,14 +892,14 @@
                     <ifnot t="junction"/>
                     <if t="highway" v="motorway_link"/>
                 </select>
-                <select value="0.1">
+                <select value="0.25">
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
                     <if t="highway" v="trunk"/>
                     <if t="oneway" v="yes"/>
                 </select>
-                <select value="0.1">
+                <select value="0.25">
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
