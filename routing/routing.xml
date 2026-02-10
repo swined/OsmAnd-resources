@@ -381,7 +381,11 @@
 	-->
 
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
-		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
+        <parameter id="less_dual_carriageways" name="0️⃣ Less dual carriageways" type="boolean"/>
+        <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
+        <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
+
+        <!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
 	 	<!--<attribute name="heuristicCoefficient" value="1.5" />
 		-->
@@ -404,10 +408,6 @@
 		<!-- <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> -->
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 
-        <parameter id="less_dual_carriageways" name="0️⃣ Less dual carriageways" type="boolean"/>
-        <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
-        <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
-        
         <parameter id="short_way" name="Short way" description="Short way" type="boolean"/>
 		<parameter id="avoid_toll" name="Avoid toll roads" description="Avoid toll roads" type="boolean"/>
 		<parameter id="avoid_unpaved" name="Avoid unpaved roads" description="Avoid unpaved roads" type="boolean"/>
