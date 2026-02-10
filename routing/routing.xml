@@ -918,7 +918,7 @@
                 <select t="highway" v="unclassified" value="0.1"/>
             </if>
             <if param="more_tolls">
-                <select value="0.7">
+                <select value="0.5">
                     <ifnot t="toll" v="yes"/>
                 </select>
             </if>
