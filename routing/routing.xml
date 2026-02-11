@@ -897,7 +897,6 @@
                     <ifnot t="junction"/>
                     <ifnot t="tunnel" v="yes"/>
                     <ifnot t="bridge" v="yes"/>
-                    <ifnot t="lanes" v="1"/>
                     <if t="highway" v="trunk"/>
                     <if t="oneway" v="yes"/>
                 </select>
