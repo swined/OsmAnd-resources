@@ -382,6 +382,7 @@
 
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
         <parameter id="less_dual_carriageways" name="0️⃣ Less dual carriageways" type="boolean"/>
+        <parameter id="allow_dual_carriageways_in_lez" name="🌳 Allow dual carriageways in LEZ" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
         <parameter id="more_tolls" name="💸 More tolls" type="boolean"/>
@@ -883,30 +884,62 @@
 
 		<way attribute="priority">
             <if param="less_dual_carriageways">
-                <select value="0.1">
-                    <ifnot param="avoid_motorway"/>
-                    <ifnot t="junction"/>
-                    <if t="highway" v="motorway"/>
-                </select>
-                <select value="0.1">
-                    <ifnot param="avoid_motorway"/>
-                    <ifnot t="junction"/>
-                    <if t="highway" v="motorway_link"/>
-                </select>
-                <select value="0.25">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-                <select value="0.25">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk_link"/>
-                    <if t="oneway" v="yes"/>
-                </select>
+                <if param="allow_dual_carriageways_in_lez">
+                    <select value="0.1">
+                        <ifnot param="avoid_motorway"/>
+                        <ifnot t="junction"/>
+                        <if t="highway" v="motorway"/>
+                        <ifnot t="low_emission_zone" v="yes"/>
+                    </select>
+                    <select value="0.1">
+                        <ifnot param="avoid_motorway"/>
+                        <ifnot t="junction"/>
+                        <if t="highway" v="motorway_link"/>
+                        <ifnot t="low_emission_zone" v="yes"/>
+                    </select>
+                    <select value="0.25">
+                        <ifnot t="junction"/>
+                        <ifnot t="tunnel" v="yes"/>
+                        <ifnot t="bridge" v="yes"/>
+                        <if t="highway" v="trunk"/>
+                        <if t="oneway" v="yes"/>
+                        <ifnot t="low_emission_zone" v="yes"/>
+                    </select>
+                    <select value="0.25">
+                        <ifnot t="junction"/>
+                        <ifnot t="tunnel" v="yes"/>
+                        <ifnot t="bridge" v="yes"/>
+                        <if t="highway" v="trunk_link"/>
+                        <if t="oneway" v="yes"/>
+                        <ifnot t="low_emission_zone" v="yes"/>
+                    </select>
+                </if>
+                <ifnot param="allow_dual_carriageways_in_lez">
+                    <select value="0.1">
+                        <ifnot param="avoid_motorway"/>
+                        <ifnot t="junction"/>
+                        <if t="highway" v="motorway"/>
+                    </select>
+                    <select value="0.1">
+                        <ifnot param="avoid_motorway"/>
+                        <ifnot t="junction"/>
+                        <if t="highway" v="motorway_link"/>
+                    </select>
+                    <select value="0.25">
+                        <ifnot t="junction"/>
+                        <ifnot t="tunnel" v="yes"/>
+                        <ifnot t="bridge" v="yes"/>
+                        <if t="highway" v="trunk"/>
+                        <if t="oneway" v="yes"/>
+                    </select>
+                    <select value="0.25">
+                        <ifnot t="junction"/>
+                        <ifnot t="tunnel" v="yes"/>
+                        <ifnot t="bridge" v="yes"/>
+                        <if t="highway" v="trunk_link"/>
+                        <if t="oneway" v="yes"/>
+                    </select>
+                </ifnot>
             </if>
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
