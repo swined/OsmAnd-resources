@@ -385,6 +385,7 @@
         <parameter id="allow_dual_carriageways_in_lez" name="🌳 Allow dual carriageways in LEZ" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
+        <parameter id="more_secondary" name="2️⃣ More secondary" type="boolean"/>
         <parameter id="more_tolls" name="💸 More tolls" type="boolean"/>
 
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
@@ -949,6 +950,11 @@
             </if>
             <if param="less_unclassified">
                 <select t="highway" v="unclassified" value="0.1"/>
+            </if>
+            <if param="more_secondary">
+                <select value="0.5">
+                    <ifnot t="highway" v="secondary"/>
+                </select>
             </if>
             <if param="more_tolls">
                 <select value="0.5">
