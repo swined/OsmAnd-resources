@@ -960,6 +960,7 @@
                 <select value="0.10" t="highway" v="trunk_link"/>
                 <select value="0.25" t="highway" v="tertiary"/>
                 <select value="0.10" t="highway" v="unclassified"/>
+                <select value="0.10" t="highway" v="residential"/>
             </if>
             <if param="route_23">
                 <select value="0.10" t="highway" v="motorway"/>
@@ -968,6 +969,7 @@
                 <select value="0.10" t="highway" v="trunk_link"/>
                 <select value="0.25" t="highway" v="primary"/>
                 <select value="0.10" t="highway" v="unclassified"/>
+                <select value="0.10" t="highway" v="residential"/>
             </if>
             <if param="route_123">
                 <select value="0.10" t="highway" v="motorway"/>
@@ -975,6 +977,7 @@
                 <select value="0.10" t="highway" v="trunk"/>
                 <select value="0.10" t="highway" v="trunk_link"/>
                 <select value="0.10" t="highway" v="unclassified"/>
+                <select value="0.10" t="highway" v="residential"/>
             </if>
             <if param="more_tolls">
                 <select value="0.5">
