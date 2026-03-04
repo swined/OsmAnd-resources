@@ -954,9 +954,9 @@
             <if param="route_23">
                 <select value="0.10" t="highway" v="motorway"/>
                 <select value="0.10" t="highway" v="motorway_link"/>
-                <select value="0.25" t="highway" v="trunk"/>
-                <select value="0.25" t="highway" v="trunk_link"/>
-                <select value="0.50" t="highway" v="primary"/>
+                <select value="0.10" t="highway" v="trunk"/>
+                <select value="0.10" t="highway" v="trunk_link"/>
+                <select value="0.25" t="highway" v="primary"/>
                 <select value="0.10" t="highway" v="unclassified"/>
             </if>
             <if param="more_tolls">
