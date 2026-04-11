@@ -915,16 +915,6 @@
             </if>
             <if param="less_trunk">
                 <select value="0.1">
-                    <ifnot param="avoid_motorway"/>
-                    <ifnot t="junction"/>
-                    <if t="highway" v="motorway"/>
-                </select>
-                <select value="0.1">
-                    <ifnot param="avoid_motorway"/>
-                    <ifnot t="junction"/>
-                    <if t="highway" v="motorway_link"/>
-                </select>
-                <select value="0.1">
                     <ifnot t="junction"/>
                     <if t="highway" v="trunk"/>
                 </select>
