@@ -916,10 +916,12 @@
             <if param="less_trunk">
                 <select value="0.1">
                     <ifnot t="junction"/>
+                    <ifnot t="low_emission_zone" v="yes"/>
                     <if t="highway" v="trunk"/>
                 </select>
                 <select value="0.1">
                     <ifnot t="junction"/>
+                    <ifnot t="low_emission_zone" v="yes"/>
                     <if t="highway" v="trunk_link"/>
                 </select>
             </if>
