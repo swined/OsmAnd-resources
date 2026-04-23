@@ -383,6 +383,7 @@
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
         <parameter id="slightly_less_motorways" name="🤏 Slightly less motorways" type="boolean"/>
         <parameter id="less_dual_carriageways" name="0️⃣ Less dual carriageways" type="boolean"/>
+        <parameter id="less_ow_trunk" name="0️⃣ Less one way trunk roads" type="boolean"/>
         <parameter id="less_trunk" name="0️⃣ Less trunk roads" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
@@ -913,12 +914,28 @@
                     <if t="oneway" v="yes"/>
                 </select>
             </if>
+            <if param="less_ow_trunk">
+                <select value="0.25">
+                    <ifnot t="junction"/>
+                    <ifnot t="tunnel" v="yes"/>
+                    <ifnot t="bridge" v="yes"/>
+                    <if t="highway" v="trunk"/>
+                    <if t="oneway" v="yes"/>
+                </select>
+                <select value="0.25">
+                    <ifnot t="junction"/>
+                    <ifnot t="tunnel" v="yes"/>
+                    <ifnot t="bridge" v="yes"/>
+                    <if t="highway" v="trunk_link"/>
+                    <if t="oneway" v="yes"/>
+                </select>
+            </if>            
             <if param="less_trunk">
-                <select value="0.1">
+                <select value="0.25">
                     <ifnot t="junction"/>
                     <if t="highway" v="trunk"/>
                 </select>
-                <select value="0.1">
+                <select value="0.25">
                     <ifnot t="junction"/>
                     <if t="highway" v="trunk_link"/>
                 </select>
