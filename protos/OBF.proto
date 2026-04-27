@@ -432,6 +432,8 @@ message TransportRouteStop {
 	
 	required uint32 name = 6; // index in message table
 	optional uint32 name_en = 7; // index in message table
+
+	optional uint32 travelTime = 8; // estimated time seconds to next stop
 }
 
 message TransportStop {
@@ -521,7 +523,15 @@ message OsmAndPoiIndex {
 
 }
 
+message OsmAndBloomFilterAlgorithm {
+	required uint32 version = 1; // version or algoritym
+	optional bytes data = 4; // data could be used in future as dictionary or smth
+}
+
 message OsmAndPoiNameIndex {
+    // indexes and order of filter algorithms are strictly corresponding bloomIndex = 5 inside Atom
+	repeated OsmAndBloomFilterAlgorithm filters = 2;
+	
 	// shift to OsmAndPoiNameIndexData starting from OsmAndPoiIndex message
 	// encoded as fixed32 length delimited
 	required IndexedStringTable table = 3;
@@ -538,9 +548,13 @@ message OsmAndPoiNameIndexDataAtom {
 	optional uint32 zoom = 2;
 	optional uint32 x = 3;
 	optional uint32 y = 4;
+    
+	repeated bytes bloomIndex = 5; // 1st byte is version or algorithm, multiple filters could be applied
+    
 	// shift to OsmAndPoiBoxData message from OsmAndPoiIndex.start
 	// message is started when body is started
 	optional fixed32 shiftTo = 14;
+    
 }
 
 message OsmAndCategoryTable {
@@ -620,7 +634,7 @@ message OsmAndPoiBoxDataAtom {
 
   repeated uint32 categories = 4;
   repeated uint32 subcategories = 5; // v1.7
-
+		
   optional string name = 6;
   optional string nameEn = 7;
   optional uint64 id = 8;  
