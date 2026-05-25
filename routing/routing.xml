@@ -389,7 +389,7 @@
 
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
         <parameter id="m_50" name="M:50%" type="boolean"/>
-        <parameter id="m_75" name="m:75%" type="boolean"/>
+        <parameter id="m_75" name="M:75%" type="boolean"/>
         <parameter id="less_dual_carriageways" name="0️⃣ Less dual carriageways" type="boolean"/>
         <parameter id="less_ow_trunk" name="0️⃣ Less one way trunk roads" type="boolean"/>
         <parameter id="less_trunk" name="0️⃣ Less trunk roads" type="boolean"/>
