@@ -391,6 +391,10 @@
         <parameter id="m_10" name="M:10%" type="boolean" group="Motorways"/>
         <parameter id="m_25" name="M:25%" type="boolean" group="Motorways"/>
         <parameter id="m_50" name="M:50%" type="boolean" group="Motorways"/>
+        <parameter id="m_51" name="M:51%" type="boolean" group="Motorways"/>
+        <parameter id="m_52" name="M:52%" type="boolean" group="Motorways"/>
+        <parameter id="m_53" name="M:53%" type="boolean" group="Motorways"/>
+        <parameter id="m_54" name="M:54%" type="boolean" group="Motorways"/>
         <parameter id="m_55" name="M:55%" type="boolean" group="Motorways"/>
         <parameter id="m_60" name="M:60%" type="boolean" group="Motorways"/>
         <parameter id="m_75" name="M:75%" type="boolean" group="Motorways"/>
@@ -920,6 +924,22 @@
             <if param="m_50">
                 <select value="0.5" t="highway" v="motorway"/>
                 <select value="0.5" t="highway" v="motorway_link"/>
+            </if>
+            <if param="m_51">
+                <select value="0.51" t="highway" v="motorway"/>
+                <select value="0.51" t="highway" v="motorway_link"/>
+            </if>
+            <if param="m_52">
+                <select value="0.52" t="highway" v="motorway"/>
+                <select value="0.52" t="highway" v="motorway_link"/>
+            </if>
+            <if param="m_53">
+                <select value="0.53" t="highway" v="motorway"/>
+                <select value="0.53" t="highway" v="motorway_link"/>
+            </if>
+            <if param="m_54">
+                <select value="0.54" t="highway" v="motorway"/>
+                <select value="0.54" t="highway" v="motorway_link"/>
             </if>
             <if param="m_55">
                 <select value="0.55" t="highway" v="motorway"/>
