@@ -391,11 +391,13 @@
         <parameter id="m_10" name="M:10%" type="boolean"/>
         <parameter id="m_25" name="M:25%" type="boolean"/>
         <parameter id="m_50" name="M:50%" type="boolean"/>
+        <parameter id="m_55" name="M:55%" type="boolean"/>
         <parameter id="m_60" name="M:60%" type="boolean"/>
         <parameter id="m_75" name="M:75%" type="boolean"/>
         <parameter id="ot_25" name="OT:25%" type="boolean"/>
-        <parameter id="less_dual_carriageways" name="M:10% OT:25%" type="boolean"/>
-        <parameter id="less_trunk" name="0️⃣ Less trunk roads" type="boolean"/>
+        <parameter id="ot_50" name="OT:50%" type="boolean"/>
+        <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
+        <parameter id="t_25" name="T:25%" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
 
@@ -917,6 +919,10 @@
                 <select value="0.5" t="highway" v="motorway"/>
                 <select value="0.5" t="highway" v="motorway_link"/>
             </if>
+            <if param="m_55">
+                <select value="0.55" t="highway" v="motorway"/>
+                <select value="0.55" t="highway" v="motorway_link"/>
+            </if>
             <if param="m_60">
                 <select value="0.6" t="highway" v="motorway"/>
                 <select value="0.6" t="highway" v="motorway_link"/>
@@ -940,8 +946,24 @@
                     <if t="highway" v="trunk_link"/>
                     <if t="oneway" v="yes"/>
                 </select>
-            </if>            
-            <if param="less_dual_carriageways">
+            </if>
+            <if param="ot_50">
+                <select value="0.5">
+                    <ifnot t="junction"/>
+                    <ifnot t="tunnel" v="yes"/>
+                    <ifnot t="bridge" v="yes"/>
+                    <if t="highway" v="trunk"/>
+                    <if t="oneway" v="yes"/>
+                </select>
+                <select value="0.5">
+                    <ifnot t="junction"/>
+                    <ifnot t="tunnel" v="yes"/>
+                    <ifnot t="bridge" v="yes"/>
+                    <if t="highway" v="trunk_link"/>
+                    <if t="oneway" v="yes"/>
+                </select>
+            </if>
+            <if param="m_10_ot_25">
                 <select value="0.1">
                     <ifnot param="avoid_motorway"/>
                     <ifnot t="junction"/>
@@ -967,7 +989,7 @@
                     <if t="oneway" v="yes"/>
                 </select>
             </if>
-            <if param="less_trunk">
+            <if param="t_25">
                 <select value="0.25">
                     <ifnot t="junction"/>
                     <if t="highway" v="trunk"/>
