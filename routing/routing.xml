@@ -388,14 +388,16 @@
 	-->
 
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
-        <parameter id="m_10" name="M:10%" type="boolean"/>
-        <parameter id="m_25" name="M:25%" type="boolean"/>
-        <parameter id="m_50" name="M:50%" type="boolean"/>
-        <parameter id="m_55" name="M:55%" type="boolean"/>
-        <parameter id="m_60" name="M:60%" type="boolean"/>
-        <parameter id="m_75" name="M:75%" type="boolean"/>
-        <parameter id="ot_25" name="OT:25%" type="boolean"/>
-        <parameter id="ot_50" name="OT:50%" type="boolean"/>
+        <parameter id="m_10" name="M:10%" type="boolean" group="Motorways"/>
+        <parameter id="m_25" name="M:25%" type="boolean" group="Motorways"/>
+        <parameter id="m_50" name="M:50%" type="boolean" group="Motorways"/>
+        <parameter id="m_55" name="M:55%" type="boolean" group="Motorways"/>
+        <parameter id="m_60" name="M:60%" type="boolean" group="Motorways"/>
+        <parameter id="m_75" name="M:75%" type="boolean" group="Motorways"/>
+        <parameter id="m_100" name="M:100%" type="boolean" group="Motorways"/>
+        <parameter id="ot_25" name="OT:25%" type="boolean" group="One way trunk"/>
+        <parameter id="ot_50" name="OT:50%" type="boolean" group="One way trunk"/>
+        <parameter id="ot_100" name="OT:100%" type="boolean" group="One way trunk"/>
         <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
         <parameter id="t_25" name="T:25%" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
