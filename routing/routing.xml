@@ -406,6 +406,9 @@
         <parameter id="t_25" name="T:25%" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
+        <parameter id="less_slow_10" name="Slow:10%" type="boolean"/>
+        <parameter id="less_slow_25" name="Slow:25%" type="boolean"/>
+        <parameter id="less_slow_50" name="Slow:50%" type="boolean"/>
         
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
@@ -1041,8 +1044,19 @@
                 <select t="highway" v="unclassified" value="0.1"/>
                 <select t="highway" v="residential" value="0.1"/>
             </if>
-            
-			<!-- not working fine -->
+            <if param="less_slow_10">
+                <select t="maxspeed" v="20 mph" value="0.10" />
+                <select t="maxspeed" v="30 mph" value="0.10" />
+            </if>
+            <if param="less_slow_25">
+                <select t="maxspeed" v="20 mph" value="0.25" />
+                <select t="maxspeed" v="30 mph" value="0.25" />
+            </if>
+            <if param="less_slow_50">
+                <select t="maxspeed" v="20 mph" value="0.50" />
+                <select t="maxspeed" v="30 mph" value="0.50" />
+            </if>
+            <!-- not working fine -->
 			<!--
 			<if param="prefer_motorway">
 				<select value="1.2" t="highway" v="motorway"/>
