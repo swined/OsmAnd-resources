@@ -13,6 +13,7 @@
 
 # Misc
 _rendering-testcases
+.idea/
 
 *.swp
 *.DS_Store
