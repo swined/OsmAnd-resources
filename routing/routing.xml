@@ -1053,9 +1053,7 @@
                 <select t="maxspeed" v="30 mph" value="0.50" />
             </if>
             <if param="short_land_prefer_ferry">
-                <select value="0.5">
-                    <ifnot t="route" v="ferry"/>
-                </select>
+                <select t="highway" value="0.5"/>
             </if>
             <!-- not working fine -->
 			<!--
