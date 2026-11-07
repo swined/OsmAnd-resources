@@ -410,16 +410,24 @@
         <parameter id="less_slow_10" name="Slow:10%" type="boolean"/>
         <parameter id="less_slow_25" name="Slow:25%" type="boolean"/>
         <parameter id="less_slow_50" name="Slow:50%" type="boolean"/>
-        <parameter id="heuristic_2" name="Heuristic: 2" type="boolean"/>
+        <parameter id="heuristic_1" name="Heuristic: 1" type="boolean" group="heuristic"/>
+        <parameter id="heuristic_2" name="Heuristic: 2" type="boolean" group="heuristic"/>
+        <parameter id="heuristic_5" name="Heuristic: 5" type="boolean" group="heuristic"/>
         <parameter id="short_land_prefer_ferry" type="boolean"
                    name="Shortest land distance, prefer ferries"
                    description="Minimise distance travelled on land and favour ferry crossings"/>
         
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
-        
+
+        <if param="heuristic_1">
+            <attribute name="heuristicCoefficient" value="1" />
+        </if>
         <if param="heuristic_2">
             <attribute name="heuristicCoefficient" value="2" />
+        </if>
+        <if param="heuristic_5">
+            <attribute name="heuristicCoefficient" value="5" />
         </if>
 	 	
 		<attribute name="derivedProfiles" value="default,truck,motorcycle"/>
