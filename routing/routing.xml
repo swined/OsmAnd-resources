@@ -406,6 +406,7 @@
         <parameter id="t_25" name="T:25%" type="boolean"/>
         <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
         <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
+        <parameter id="less_residential" name="🏠 Less residential roads" type="boolean"/>
         <parameter id="less_slow_10" name="Slow:10%" type="boolean"/>
         <parameter id="less_slow_25" name="Slow:25%" type="boolean"/>
         <parameter id="less_slow_50" name="Slow:50%" type="boolean"/>
@@ -1029,13 +1030,11 @@
             </if>
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
-                <ifnot param="less_unclassified">
-                    <select t="highway" v="unclassified" value="0.25"/>
-                    <select t="highway" v="residential" value="0.25"/>
-                </ifnot>
             </if>
             <if param="less_unclassified">
                 <select t="highway" v="unclassified" value="0.1"/>
+            </if>
+            <if param="less_residential">
                 <select t="highway" v="residential" value="0.1"/>
             </if>
             <if param="less_slow_10">
