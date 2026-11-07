@@ -404,9 +404,9 @@
         <parameter id="ot_100" name="OT:100%" type="boolean" group="One way trunk"/>
         <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
         <parameter id="t_25" name="T:25%" type="boolean"/>
-        <parameter id="less_tertiary" name="3️⃣ Less tertiary roads" type="boolean"/>
-        <parameter id="less_unclassified" name="4️⃣ Less unclassified roads" type="boolean"/>
-        <parameter id="less_residential" name="🏠 Less residential roads" type="boolean"/>
+        <parameter id="less_tertiary" name="3:50%" type="boolean"/>
+        <parameter id="less_unclassified" name="U:10%" type="boolean"/>
+        <parameter id="less_residential" name="R:10%" type="boolean"/>
         <parameter id="less_slow_10" name="Slow:10%" type="boolean"/>
         <parameter id="less_slow_25" name="Slow:25%" type="boolean"/>
         <parameter id="less_slow_50" name="Slow:50%" type="boolean"/>
