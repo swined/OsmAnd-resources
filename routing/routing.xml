@@ -1074,7 +1074,7 @@
                 <select t="maxspeed" v="30 mph" value="0.50" />
             </if>
             <if param="prefer_tolls">
-                <select value="0.5">
+                <select value="0.25">
                     <if t="highway" v="motorway"/>
                     <ifnot t="toll" v="yes"/>
                 </select>
