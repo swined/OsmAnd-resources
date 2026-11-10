@@ -404,6 +404,7 @@
         <parameter id="ot_100" name="OT:100%" type="boolean" group="One way trunk"/>
         <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
         <parameter id="t_25" name="T:25%" type="boolean"/>
+        <parameter id="t_50" name="T:50%" type="boolean"/>
         <parameter id="prefer_tolls" name="Prefer tolls" type="boolean"/>
         <parameter id="less_tertiary" name="3:50%" type="boolean"/>
         <parameter id="less_unclassified" name="U:10%" type="boolean"/>
@@ -1051,6 +1052,10 @@
             <if param="t_25">
                 <select t="highway" v="trunk" value="0.25"/>
                 <select t="highway" v="trunk_link" value="0.25"/>
+            </if>
+            <if param="t_50">
+                <select t="highway" v="trunk" value="0.50"/>
+                <select t="highway" v="trunk_link" value="0.50"/>
             </if>
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
