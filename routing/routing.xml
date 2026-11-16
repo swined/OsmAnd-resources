@@ -403,7 +403,7 @@
         <parameter id="ot_50" name="OT:50%" type="boolean" group="One way trunk"/>
         <parameter id="ot_100" name="OT:100%" type="boolean" group="One way trunk"/>
         <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
-        <parameter id="fun" name="Fun" type="boolean"/>
+        <parameter id="fun" name="🤪Fun" type="boolean"/>
         <parameter id="t_25" name="T:25%" type="boolean"/>
         <parameter id="prefer_tolls" name="Prefer tolls" type="boolean"/>
         <parameter id="less_tertiary" name="3:50%" type="boolean"/>
