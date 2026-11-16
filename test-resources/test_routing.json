@@ -1943,5 +1943,34 @@
       "319830369": true,
       "319830370": true
     }
+  },
+  {
+    "testName": "116. HH-routing Huntingdon - Stamford with no motorways: follow the B1090 / B1043 / A15 past the A1(M) Alconbury - Peterborough section instead of the narrow unclassified Bullock Road (maps @ November 2026, HH section of Gb_england_east-of-england)",
+    "url": "https://osmand.net/map/navigate/?start=52.331300,-0.184000&end=52.652600,-0.479700&profile=car&params=avoid_motorway",
+    "params": {
+      "hh": "true",
+      "map": "Routing_test_116_huntingdon_stamford_bullock_road.obf",
+      "vehicle": "car",
+      "avoid_motorway": "true"
+    },
+    "startPoint": {
+      "latitude": 52.3313,
+      "longitude": -0.184
+    },
+    "endPoint": {
+      "latitude": 52.6526,
+      "longitude": -0.4797
+    },
+    "expectedResults": {
+      "29290669": false,
+      "29290670": false,
+      "50123936": false,
+      "1537313841": false,
+      "352559564": false,
+      "352559301": false,
+      "35414988": false,
+      "35414989": false,
+      "35413206": false
+    }
   }
 ]
