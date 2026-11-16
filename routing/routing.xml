@@ -411,6 +411,7 @@
         <parameter id="less_slow_10" name="Slow:10%" type="boolean"/>
         <parameter id="less_slow_25" name="Slow:25%" type="boolean"/>
         <parameter id="less_slow_50" name="Slow:50%" type="boolean"/>
+        <parameter id="patch_unclassified" name="Patch unclassified" type="boolean"/>
         
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
@@ -1169,7 +1170,12 @@
 			<select value="0.9" t="highway" v="tertiary"/>
 			<select value="0.85" t="highway" v="tertiary_link"/>
 			<!-- lowest form of grid network, usually 90% of urban roads -->
-			<select value="0.7" t="highway" v="unclassified"/>
+            <if param="patch_unclassfied">
+                <select value="0.65" t="highway" v="unclassified"/>
+            </if>
+            <ifnot param="patch_unclassified">
+			    <select value="0.7" t="highway" v="unclassified"/>
+            </ifnot>
 			<!-- road = no type, no review and may be not accurate -->
 			<select value="0.7" t="highway" v="road"/>
 			<select value="0.7" t="highway" v="residential"/>
