@@ -1028,6 +1028,7 @@
             <if param="t_25">
                 <select t="highway" v="trunk" value="0.25"/>
                 <select t="highway" v="trunk_link" value="0.25"/>
+                <select t="highway" v="unclassified" value="0.25"/>
             </if>
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
