@@ -403,6 +403,7 @@
         <parameter id="ot_50" name="OT:50%" type="boolean" group="One way trunk"/>
         <parameter id="ot_100" name="OT:100%" type="boolean" group="One way trunk"/>
         <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
+        <parameter id="fun" name="Fun" type="boolean"/>
         <parameter id="t_25" name="T:25%" type="boolean"/>
         <parameter id="prefer_tolls" name="Prefer tolls" type="boolean"/>
         <parameter id="less_tertiary" name="3:50%" type="boolean"/>
@@ -1025,11 +1026,17 @@
                     <if t="oneway" v="yes"/>
                 </select>
             </if>
+            <if param="fun">
+                <select t="highway" v="motorway" value="0.25"/>
+                <select t="highway" v="motorway_link" value="0.25"/>
+                <select t="highway" v="trunk" value="0.25"/>
+                <select t="highway" v="trunk_link" value="0.25"/>
+                <select t="highway" v="residential" value="0.25"/>
+                <select t="highway" v="unclassified" value="0.25"/>
+            </if>
             <if param="t_25">
                 <select t="highway" v="trunk" value="0.25"/>
                 <select t="highway" v="trunk_link" value="0.25"/>
-                <!-- downgrade minor roads by the exact same amount to avoid taking shortcuts -->
-                <select t="highway" v="unclassified" value="0.25"/>
             </if>
             <if param="less_tertiary">
                 <select t="highway" v="tertiary" value="0.5"/>
