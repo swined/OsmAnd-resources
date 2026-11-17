@@ -906,14 +906,7 @@
 		</way>
 
 		<way attribute="priority">
-            <if param="fun">
-                <select value=":fun_factor">
-                    <ifnot t="highway" v="primary"/>
-                    <ifnot t="highway" v="secondary"/>
-                    <ifnot t="highway" v="tertiary"/>
-                </select>
-            </if>
-            <!-- not working fine -->
+			<!-- not working fine -->
 			<!--
 			<if param="prefer_motorway">
 				<select value="1.2" t="highway" v="motorway"/>
@@ -921,6 +914,15 @@
 				<select value="1.2" t="highway" v="trunk"/>
 				<select value="1.1" t="highway" v="trunk_link"/>
 			</if> -->
+
+            <if param="fun">
+                <select value=":fun_factor">
+                    <ifnot t="highway" v="primary"/>
+                    <ifnot t="highway" v="secondary"/>
+                    <ifnot t="highway" v="tertiary"/>
+                </select>
+            </if>
+            
 			<!-- access deprioritize -->
 			<select t="motorcar" v="private" value="0.15"/>
 			<select t="motorcar" v="destination" value="0.15"/>
