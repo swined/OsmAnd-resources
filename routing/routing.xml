@@ -390,6 +390,7 @@
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
         <parameter id="fun" name="🤪 Fun" type="boolean"/>
         <parameter id="fun_factor" name="🤪 Fun factor" type="numeric" values="1,0.25,0.5,0.55,0.6,0.75" valueDescriptions="Off,25%,50%,55%,60%,75%"/>
+        <parameter id="test" name="Test" type="boolean"/>
         
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
@@ -914,6 +915,11 @@
 				<select value="1.2" t="highway" v="trunk"/>
 				<select value="1.1" t="highway" v="trunk_link"/>
 			</if> -->
+
+            <if param="test">
+                <select value="0.1" t="highway" v="motorway"/>
+                <select value="1" t="oneway" v="yes"/>
+            </if>
 
             <if param="fun">
                 <select value=":fun_factor">
