@@ -391,6 +391,7 @@
         <parameter id="fun" name="🤪 Fun" type="boolean"/>
         <parameter id="fun_factor" name="🤪 Fun factor" type="numeric" values="1,0.25,0.5,0.55,0.6,0.75" valueDescriptions="Off,25%,50%,55%,60%,75%"/>
         <parameter id="test" name="Test" type="boolean"/>
+        <parameter id="test2" name="Test2" type="boolean"/>
         
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
@@ -917,7 +918,9 @@
 			</if> -->
 
             <if param="test">
-                <select value="1" t="oneway" v="yes"/>
+                <select value="1" t="highway" v="motorway"/>
+            </if>
+            <if param="test2">
                 <select value="0.1" t="highway" v="motorway"/>
             </if>
 
