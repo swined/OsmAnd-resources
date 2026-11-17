@@ -1028,7 +1028,6 @@
             </if>
             <if param="fun">
                 <select value="0.25">
-                    <if t="highway"/>
                     <ifnot t="highway" v="primary"/>
                     <ifnot t="highway" v="secondary"/>
                     <ifnot t="highway" v="tertiary"/>
@@ -1067,7 +1066,6 @@
             </if>
 			<if param="prefer_motorway">
                 <select value="0.75">
-                    <if t="highway"/>
                     <ifnot t="highway" v="motorway"/>
                     <ifnot t="highway" v="motorway_link"/>
                 </select>
