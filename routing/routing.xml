@@ -393,7 +393,8 @@
         
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
-
+	 	<!--<attribute name="heuristicCoefficient" value="1.5" />
+		-->
 		<attribute name="derivedProfiles" value="default,truck,motorcycle"/>
 		<!-- MAIN parameter to approximate (35m good for custom recorded tracks)-->
 		<attribute name="minPointApproximation" value = "50"/>
@@ -410,6 +411,7 @@
 		<attribute name="shortWayRoundaboutTurn" value = "5"/>
 
 		<!-- NEW ROUTING API -->
+		<!-- <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> -->
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 		
 		<parameter id="short_way" name="Short way" description="Short way" type="boolean"/>
@@ -911,6 +913,14 @@
                     <ifnot t="highway" v="tertiary"/>
                 </select>
             </if>
+            <!-- not working fine -->
+			<!--
+			<if param="prefer_motorway">
+				<select value="1.2" t="highway" v="motorway"/>
+				<select value="1.1" t="highway" v="motorway_link"/>
+				<select value="1.2" t="highway" v="trunk"/>
+				<select value="1.1" t="highway" v="trunk_link"/>
+			</if> -->
 			<!-- access deprioritize -->
 			<select t="motorcar" v="private" value="0.15"/>
 			<select t="motorcar" v="destination" value="0.15"/>
@@ -1017,7 +1027,7 @@
 			<select value="0.9" t="highway" v="tertiary"/>
 			<select value="0.85" t="highway" v="tertiary_link"/>
 			<!-- lowest form of grid network, usually 90% of urban roads -->
-            <select value="0.7" t="highway" v="unclassified"/>
+			<select value="0.7" t="highway" v="unclassified"/>
 			<!-- road = no type, no review and may be not accurate -->
 			<select value="0.7" t="highway" v="road"/>
 			<select value="0.7" t="highway" v="residential"/>
