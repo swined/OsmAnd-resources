@@ -433,7 +433,7 @@
 		<attribute name="shortWayRoundaboutTurn" value = "5"/>
 
 		<!-- NEW ROUTING API -->
-		<!-- <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> -->
+        <parameter id="prefer_motorway" name="Prefer motorways" description="Prefer motorways" type="boolean"/> 
 		<!-- <parameter id="no_new_routing" name="Do not use v1.9 routing" description="Do not use v1.9 routing" type="boolean"/> -->
 		
 		<parameter id="short_way" name="Short way" description="Short way" type="boolean"/>
@@ -1027,12 +1027,12 @@
                 </select>
             </if>
             <if param="fun">
-                <select t="highway" v="motorway" value="0.25"/>
-                <select t="highway" v="motorway_link" value="0.25"/>
-                <select t="highway" v="trunk" value="0.25"/>
-                <select t="highway" v="trunk_link" value="0.25"/>
-                <select t="highway" v="residential" value="0.25"/>
-                <select t="highway" v="unclassified" value="0.25"/>
+                <select value="0.25">
+                    <if t="highway"/>
+                    <ifnot t="highway" v="primary"/>
+                    <ifnot t="highway" v="secondary"/>
+                    <ifnot t="highway" v="tertiary"/>
+                </select>
             </if>
             <if param="t_25">
                 <select t="highway" v="trunk" value="0.25"/>
@@ -1065,14 +1065,13 @@
                     <ifnot t="toll" v="yes"/>
                 </select>
             </if>
-            <!-- not working fine -->
-			<!--
 			<if param="prefer_motorway">
-				<select value="1.2" t="highway" v="motorway"/>
-				<select value="1.1" t="highway" v="motorway_link"/>
-				<select value="1.2" t="highway" v="trunk"/>
-				<select value="1.1" t="highway" v="trunk_link"/>
-			</if> -->
+                <select value="0.75">
+                    <if t="highway"/>
+                    <ifnot t="highway" v="motorway"/>
+                    <ifnot t="highway" v="motorway_link"/>
+                </select>
+			</if> 
 			<!-- access deprioritize -->
 			<select t="motorcar" v="private" value="0.15"/>
 			<select t="motorcar" v="destination" value="0.15"/>
