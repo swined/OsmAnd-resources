@@ -918,8 +918,11 @@
             <if param="fun">
                 <select value=":fun_factor">
                     <ifnot t="highway" v="primary"/>
+                    <ifnot t="highway" v="primary_link"/>
                     <ifnot t="highway" v="secondary"/>
+                    <ifnot t="highway" v="secondary_link"/>
                     <ifnot t="highway" v="tertiary"/>
+                    <ifnot t="highway" v="tertiary_link"/>
                 </select>
             </if>
             
