@@ -389,7 +389,7 @@
 
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
         <parameter id="fun" name="🤪 Fun" type="boolean"/>
-        <parameter id="fun_factor" name="🤪 Fun factor" type="numeric" values="0.25,0.5,0.75" valueDescriptions="25%,50%,75%"/>
+        <parameter id="fun_factor" name="🤪 Fun factor" type="numeric" values="0.25,0.5,0.6,0.75" valueDescriptions="25%,50%,60%,75%"/>
         <parameter id="prefer_tolls" name="Prefer tolls" type="boolean"/>
         <parameter id="patch_unclassified" name="Patch unclassified" type="boolean"/>
         
