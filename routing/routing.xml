@@ -914,18 +914,6 @@
 				<select value="1.2" t="highway" v="trunk"/>
 				<select value="1.1" t="highway" v="trunk_link"/>
 			</if> -->
-
-            <if param="fun">
-                <select value=":fun_factor">
-                    <ifnot t="highway" v="primary"/>
-                    <ifnot t="highway" v="primary_link"/>
-                    <ifnot t="highway" v="secondary"/>
-                    <ifnot t="highway" v="secondary_link"/>
-                    <ifnot t="highway" v="tertiary"/>
-                    <ifnot t="highway" v="tertiary_link"/>
-                </select>
-            </if>
-            
 			<!-- access deprioritize -->
 			<select t="motorcar" v="private" value="0.15"/>
 			<select t="motorcar" v="destination" value="0.15"/>
@@ -1017,7 +1005,19 @@
 			<select value="0.5" t="surface" v="gravel"/>
 			<select value="0.5" t="surface" v="unpaved"/>
 
-			<select value="1.1" t="highway" v="motorway"/>
+
+            <if param="fun">
+                <select value=":fun_factor">
+                    <ifnot t="highway" v="primary"/>
+                    <ifnot t="highway" v="primary_link"/>
+                    <ifnot t="highway" v="secondary"/>
+                    <ifnot t="highway" v="secondary_link"/>
+                    <ifnot t="highway" v="tertiary"/>
+                    <ifnot t="highway" v="tertiary_link"/>
+                </select>
+            </if>
+
+            <select value="1.1" t="highway" v="motorway"/>
 			<!-- make links slightly smaller, so in large parallel intersections, ways will be preferred over links -->
 			<select value="0.65" t="highway" v="motorway_link"/>
 			<select value="1" t="highway" v="trunk"/>
