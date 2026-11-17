@@ -404,6 +404,7 @@
         <parameter id="ot_100" name="OT:100%" type="boolean" group="One way trunk"/>
         <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
         <parameter id="fun" name="🤪 Fun" type="boolean"/>
+        <parameter id="fun_factor" name="🤪 Fun factor" type="numeric" values="1,0.25,0.5" valueDescriptions="100%,25%,50%"/>
         <parameter id="t_25" name="T:25%" type="boolean"/>
         <parameter id="prefer_tolls" name="Prefer tolls" type="boolean"/>
         <parameter id="less_tertiary" name="3:50%" type="boolean"/>
@@ -1027,7 +1028,7 @@
                 </select>
             </if>
             <if param="fun">
-                <select value="0.25">
+                <select value=":fun_factor">
                     <ifnot t="highway" v="primary"/>
                     <ifnot t="highway" v="secondary"/>
                     <ifnot t="highway" v="tertiary"/>
