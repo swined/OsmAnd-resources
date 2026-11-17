@@ -1004,8 +1004,7 @@
 
 			<select value="0.5" t="surface" v="gravel"/>
 			<select value="0.5" t="surface" v="unpaved"/>
-
-
+            
             <if param="fun">
                 <select value=":fun_factor">
                     <ifnot t="highway" v="primary"/>
