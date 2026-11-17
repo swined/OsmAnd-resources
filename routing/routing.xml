@@ -388,21 +388,9 @@
 	-->
 
 	<routingProfile name="car" baseProfile="car" restrictionsAware="true" minSpeed="20.0" defaultSpeed="45.0" maxSpeed="130.0" sharpTurn="30" slightTurn="15" roundaboutTurn="15" onewayAware="true">
-        <parameter id="motorways" name="Motorways" type="numeric" values="0.05,0.1,0.25,0.5,0.55,0.6,0.75" valueDescriptions="5%,10%,25%,50%,55%,60%,75%"/>
-        <parameter id="ot_25" name="OT:25%" type="boolean" group="One way trunk"/>
-        <parameter id="ot_50" name="OT:50%" type="boolean" group="One way trunk"/>
-        <parameter id="ot_100" name="OT:100%" type="boolean" group="One way trunk"/>
-        <parameter id="m_10_ot_25" name="M:10% OT:25%" type="boolean"/>
         <parameter id="fun" name="🤪 Fun" type="boolean"/>
-        <parameter id="fun_factor" name="🤪 Fun factor" type="numeric" values="0.25,0.5" valueDescriptions="25%,50%"/>
-        <parameter id="t_25" name="T:25%" type="boolean"/>
+        <parameter id="fun_factor" name="🤪 Fun factor" type="numeric" values="0.25,0.5,0.75" valueDescriptions="25%,50%,75%"/>
         <parameter id="prefer_tolls" name="Prefer tolls" type="boolean"/>
-        <parameter id="less_tertiary" name="3:50%" type="boolean"/>
-        <parameter id="less_unclassified" name="U:10%" type="boolean"/>
-        <parameter id="less_residential" name="R:10%" type="boolean"/>
-        <parameter id="less_slow_10" name="Slow:10%" type="boolean"/>
-        <parameter id="less_slow_25" name="Slow:25%" type="boolean"/>
-        <parameter id="less_slow_50" name="Slow:50%" type="boolean"/>
         <parameter id="patch_unclassified" name="Patch unclassified" type="boolean"/>
         
 		<!-- Special penalty for reversed direction at route's startup (in seconds, default is 60) -->
@@ -919,95 +907,12 @@
 		</way>
 
 		<way attribute="priority">
-            <if param="ot_25">
-                <select value="0.25">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-                <select value="0.25">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk_link"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-            </if>
-            <if param="ot_50">
-                <select value="0.5">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-                <select value="0.5">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk_link"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-            </if>
-            <if param="m_10_ot_25">
-                <select value=":motorways">
-                    <ifnot param="avoid_motorway"/>
-                    <ifnot t="junction"/>
-                    <if t="highway" v="motorway"/>
-                </select>
-                <select value=":motorways">
-                    <ifnot param="avoid_motorway"/>
-                    <ifnot t="junction"/>
-                    <if t="highway" v="motorway_link"/>
-                </select>
-                <select value="0.25">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-                <select value="0.25">
-                    <ifnot t="junction"/>
-                    <ifnot t="tunnel" v="yes"/>
-                    <ifnot t="bridge" v="yes"/>
-                    <if t="highway" v="trunk_link"/>
-                    <if t="oneway" v="yes"/>
-                </select>
-            </if>
             <if param="fun">
                 <select value=":fun_factor">
                     <ifnot t="highway" v="primary"/>
                     <ifnot t="highway" v="secondary"/>
                     <ifnot t="highway" v="tertiary"/>
                 </select>
-            </if>
-            <if param="t_25">
-                <select t="highway" v="trunk" value="0.25"/>
-                <select t="highway" v="trunk_link" value="0.25"/>
-            </if>
-            <if param="less_tertiary">
-                <select t="highway" v="tertiary" value="0.5"/>
-            </if>
-            <if param="less_unclassified">
-                <select t="highway" v="unclassified" value="0.1"/>
-            </if>
-            <if param="less_residential">
-                <select t="highway" v="residential" value="0.1"/>
-            </if>
-            <if param="less_slow_10">
-                <select t="maxspeed" v="20 mph" value="0.10" />
-                <select t="maxspeed" v="30 mph" value="0.10" />
-            </if>
-            <if param="less_slow_25">
-                <select t="maxspeed" v="20 mph" value="0.25" />
-                <select t="maxspeed" v="30 mph" value="0.25" />
-            </if>
-            <if param="less_slow_50">
-                <select t="maxspeed" v="20 mph" value="0.50" />
-                <select t="maxspeed" v="30 mph" value="0.50" />
             </if>
             <if param="prefer_tolls">
                 <select value="0.25">
@@ -1098,8 +1003,8 @@
 				<select value="0.8" t="highway" v="living_street"/>
 			</if>
 			<if param="avoid_motorway">
-				<select value=":motorways" t="highway" v="motorway"/>
-				<select value=":motorways" t="highway" v="motorway_link"/>
+				<select value="0.05" t="highway" v="motorway"/>
+				<select value="0.05" t="highway" v="motorway_link"/>
 			</if>
 
 			<if param="avoid_tunnels">
